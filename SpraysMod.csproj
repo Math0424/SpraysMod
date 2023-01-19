@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{04D64C2E-EE20-45EE-8B4E-DD78E41CE4C2}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Sprays</RootNamespace>
+    <AssemblyName>Sprays</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Data\Scripts\Math0424\RichHud\Shared\.gitrepo" />
+    <None Include="Data\Scripts\Math0424\RichHud\Shared\LICENSE" />
+    <None Include="Data\Scripts\Math0424\RichHud\Shared\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
+    <Reference Include="ProtoBuf.Net">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\ProtoBuf.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ProtoBuf.Net.Core">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\ProtoBuf.Net.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Common">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Sandbox.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Game">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Sandbox.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Game.XmlSerializers">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Sandbox.Game.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="Sandbox.Graphics">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\Sandbox.Graphics.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Runtime.Serialization.Xml, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\System.Runtime.Serialization.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\System.Xml.ReaderWriter.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XDocument, Version=4.0.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\System.Xml.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlDocument, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\System.Xml.XmlDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XmlSerializer, Version=4.0.11.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\System.Xml.XmlSerializer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\System.Xml.XPath.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.XPath.XDocument, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\System.Xml.XPath.XDocument.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Game">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Game.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Game.XmlSerializers">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Game.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Input">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Input.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Library">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Library.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Math">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Math.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Render">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Render.dll</HintPath>
+    </Reference>
+    <Reference Include="VRage.Scripting">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SpaceEngineers\Bin64\VRage.Scripting.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Scripts\Math0424\ActiveSpray.cs" />
+    <Compile Include="Data\Scripts\Math0424\SprayDef.cs" />
+    <Compile Include="Data\Scripts\Math0424\Network\EasyNetworker.cs" />
+    <Compile Include="Data\Scripts\Math0424\Network\MyNetworkHandler.cs" />
+    <Compile Include="Data\Scripts\Math0424\Network\PacketNewSpray.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\RichHudClient.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\BindManager\Bind.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\BindManager\BindGroup.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\BindManager\BindManager.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\BindManager\Control.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\HUD\HudCursor.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\HUD\HudMain.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\HUD\Rendering\BillboardUtils.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\HUD\Rendering\FontManager\FontData.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\HUD\Rendering\FontManager\FontManager.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\HUD\Rendering\TextBoard.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\HUD\Rendering\TextBuilder.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\ControlCategory.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TerminalButton.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TerminalCheckbox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TerminalColorPicker.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TerminalControlBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TerminalDragBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TerminalDropdown.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TerminalList.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TerminalOnOffButton.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TerminalSlider.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Controls\TextField.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\ControlTile.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\ListBoxData.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\ModControlRoot.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Pages\ControlPage.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Pages\RebindPage.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Pages\TerminalPageBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\Pages\TextPage.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\RichHudTerminal.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\SettingsMenu\TerminalPageCategory.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\ApiContainers.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\Collections.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\Extensions\CollectionExtensions.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\Extensions\MathExtensions.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\Extensions\VectorExtensions.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\ObjectPool.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\PoolPolicies\ListPoolPolicy.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\PoolPolicies\StringBuilderPoolPolicy.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\TaskPool.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\Utilities\Color.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\Utilities\Debug.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\Utilities\ProtoBuf.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\General\Utilities\Xml.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\Internal\ExceptionHandler.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\Internal\ModBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\Internal\RichHudCore.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\IO\LocalFileIO.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\IO\LogIO.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\MsgEnums.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\BindManager\BindClientAccessors.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\BindManager\BindDefinition.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\BindManager\BindGroupInitializer.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\BindManager\CustomControls.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\BindManager\IBind.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\BindManager\IBindGroup.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\BindManager\IControl.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\CmdManager.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementBases\HudElementBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementBases\HudNodeBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementBases\HudParentBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementBases\HudSpaceNodeBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementBases\LabelBoxBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementBases\LabelElementBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementBases\NodeUtils.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementBases\ParentUtils.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementBases\WindowBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementEnums.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementInterfaces\IClickableElement.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementInterfaces\IEntryBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementInterfaces\IHudCollection.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementInterfaces\ILabelElement.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementInterfaces\IReadOnlyHudElement.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementInterfaces\IReadOnlyHudNode.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementInterfaces\IReadOnlyHudParent.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElementInterfaces\IReadOnlyHudSpaceNode.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\BorderBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\BorderedButton.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\BorderedCheckBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\Button.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\LabelBoxButton.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\LabelButton.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\NamedCheckBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\NamedOnOffButton.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\OnOffButton.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\ColorPickerRGB.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\ListInputElement.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\MouseInputElement.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\MouseInputFilter.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\ScrollBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\SelectionBoxes\Dropdown.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\SelectionBoxes\ListBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\SelectionBoxes\RadialSelectionBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\SelectionBoxes\SelectionBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\SelectionBoxes\SelectionBoxBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\SelectionBoxes\TreeBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\SelectionBoxes\TreeBoxBase.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\SelectionBoxes\TreeList.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Sliders\NamedSliderBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Sliders\ScrollBar.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Sliders\SliderBar.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Sliders\SliderBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\TextBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\TextField.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ContainerInterfaces\IHudElementContainer.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ContainerInterfaces\IListBoxEntry.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ContainerInterfaces\IScrollBoxEntry.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ContainerInterfaces\ISelectionBoxEntry.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\Containers\HudElementContainer.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\Containers\HudElementTuple.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\Containers\ListBoxEntry.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\Containers\ScrollBoxEntry.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\Containers\ScrollBoxEntryTuple.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\Containers\SelectionBoxEntry.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\DoubleLabelBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\EmptyHudElement.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\HudChain.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\HudCollection.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\Label.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\LabelBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\TexturedBox.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudMainEnums.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudSpaceNodes\CamSpaceNode.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudSpaceNodes\CustomSpaceNode.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudSpaceNodes\ScaledSpaceNode.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\ICursor.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\BillboardMats.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\BillboardUtils.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\BlockBoard.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\IFontMin.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\MatBoard.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\Material.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\MaterialFrame.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\PolyBoard.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\PuncturedPolyBoard.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\QuadBoard.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\TextBuilderInterfaces\ILine.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\TextBuilderInterfaces\IRichChar.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\TextBuilderInterfaces\ITextBoard.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\Rendering\TextBuilderInterfaces\ITextBuilder.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\RichText\GlyphFormat.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\RichText\RichText.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\TerminalColors.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\ToolTip.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\IControlCategory.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\IControlPage.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\IControlTile.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\IModControlRoot.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\IRebindPage.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\ITerminalControl.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\ITerminalPage.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\ITerminalPageCategory.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\ITextPage.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SharedBinds.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\TextInput.cs" />
+    <Compile Include="Data\Scripts\Math0424\SpraysMod.cs" />
+    <Compile Include="Data\Scripts\Math0424\SprayUI\Contents\SprayFolder.cs" />
+    <Compile Include="Data\Scripts\Math0424\SprayUI\Contents\SprayIcon.cs" />
+    <Compile Include="Data\Scripts\Math0424\SprayUI\Contents\WindowScrollContainer.cs" />
+    <Compile Include="Data\Scripts\Math0424\SprayUI\Contents\WindowToolbar.cs" />
+    <Compile Include="Data\Scripts\Math0424\SprayUI\SprayHud.cs" />
+    <Compile Include="Data\Scripts\Math0424\SprayUI\SprayWindow.cs" />
+    <Compile Include="Data\Scripts\Math0424\Storage\GlobalStorage.cs" />
+    <Compile Include="Data\Scripts\Math0424\Storage\MySprayStorage.cs" />
+    <Compile Include="Data\Scripts\Math0424\Util\Extensions.cs" />
+    <Compile Include="Data\Scripts\Math0424\Util\Options.cs" />
+    <Compile Include="Data\Scripts\Math0424\Util\SprayUtil.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
