@@ -81,6 +81,11 @@ namespace Sprays.Math0424
                     SprayUtil.Log($"Recieved malformed packet request from '{e.SenderId}' on requested grid '{packet.GridId}'");
                     e.SetCancelled(true);
                 }
+
+                if (!e.IsCancelled && MyAPIGateway.Utilities.IsDedicated)
+                {
+                    MyNetwork?.OnRecievedPacket.Invoke(e);
+                }
             }
         }
 

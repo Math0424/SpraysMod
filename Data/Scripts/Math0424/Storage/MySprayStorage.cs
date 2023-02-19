@@ -34,7 +34,7 @@ namespace Sprays.Math0424
             if (Entity.Storage != null)
             {
                 Entity.Storage[guid] = Convert.ToBase64String(MyAPIGateway.Utilities.SerializeToBinary(sprays));
-            }
+            } 
         }
 
         public override sealed bool IsSerialized()

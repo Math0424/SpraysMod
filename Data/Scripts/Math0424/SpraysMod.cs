@@ -206,7 +206,6 @@ namespace Sprays.Math0424
             }
         }
 
-
         private MyEntity3DSoundEmitter soundEmitter;
         private MySoundPair spray_sound;
         private void PlaySpraySound()
