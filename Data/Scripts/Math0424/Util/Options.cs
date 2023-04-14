@@ -7,6 +7,7 @@
         public static SprayDef Previous = null;
 
         public static float Size = 1f;
+        public static bool NoLimits = false;
         public static bool IsFlipped = false;
         public static bool IsContinuousMode = false;
         

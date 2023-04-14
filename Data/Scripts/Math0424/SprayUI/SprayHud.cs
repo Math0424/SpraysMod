@@ -90,7 +90,10 @@ namespace Sprays.Math0424
         {
             if (CanUseInput() && Options.Current != null)
             {
-                Options.Size = Math.Min(Options.Size + .5f, 10);
+                if (Options.NoLimits) 
+                    Options.Size = Options.Size + .5f;
+                else
+                    Options.Size = Math.Min(Options.Size + .5f, 10);
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿using RichHudFramework.UI;
 using RichHudFramework.UI.Client;
 using Sandbox.Game.Entities;
+using Sandbox.ModAPI;
 using System;
 using VRage.Game.ModAPI;
 using VRage.ModAPI;
@@ -15,7 +16,7 @@ namespace Sprays.Math0424.SprayUI.Contents
         private readonly Button sidebar;
         private readonly TexturedBox menu;
 
-        private readonly LabelBoxButton eraser, continous, refresh;
+        private readonly LabelBoxButton eraser, continous, refresh, noLimits;
 
         private readonly ScrollBar sizeSlider;
         private readonly LabelBox sizeLabel;
@@ -106,6 +107,20 @@ namespace Sprays.Math0424.SprayUI.Contents
             };
             continous.MouseInput.LeftReleased += ClickedContinuous;
            
+            if (MyAPIGateway.Session.HasCreativeRights)
+            {
+                noLimits = new LabelBoxButton(menu)
+                {
+                    ParentAlignment = ParentAlignments.Top | ParentAlignments.Inner | ParentAlignments.Center,
+                    Offset = new Vector2(0, -480),
+                    Color = new Color(41, 54, 100),
+                    Format = new GlyphFormat(GlyphFormat.Blueish.Color, TextAlignment.Center, 1f),
+                    AutoResize = false,
+                    Text = "NoLimits: False",
+                    Size = new Vector2(180, 50),
+                };
+                noLimits.MouseInput.LeftReleased += ClickedNoLimits;
+            }
 
             refresh = new LabelBoxButton(menu)
             {
@@ -118,7 +133,6 @@ namespace Sprays.Math0424.SprayUI.Contents
                 Size = new Vector2(180, 50),
             };
             refresh.MouseInput.LeftReleased += ClickedRefresh;
-            
 
             new LabelBox(menu)
             {
@@ -160,6 +174,12 @@ namespace Sprays.Math0424.SprayUI.Contents
                 Size = new Vector2(180, 30),
             };
 
+        }
+
+        public void ClickedNoLimits(object sender, EventArgs e)
+        {
+            Options.NoLimits = !Options.NoLimits;
+            noLimits.Text = new RichText($"NoLimits: {Options.NoLimits}");
         }
 
         public void ClickedEraser(object sender, EventArgs e)

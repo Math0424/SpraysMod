@@ -109,7 +109,7 @@ namespace Sprays.Math0424
             if (Options.Frame % 3 == 0) fps |= SprayDef.FPS.Fps_20;
             if (Options.Frame % 2 == 0) fps |= SprayDef.FPS.Fps_30;
 
-            foreach (ActiveSpray s in ActiveSpray.Animated.Keys)
+            foreach (ActiveSpray s in new List<ActiveSpray>(ActiveSpray.Animated.Keys))
             {
                 //a bit of bitshifting for the FPS
                 if ((s.Flags << 8 >> 27 & (int)fps) != 0)
@@ -134,10 +134,10 @@ namespace Sprays.Math0424
                     SprayHud.Init();
                 }
 
-                if (Options.Current != null && !MyAPIGateway.Gui.IsCursorVisible && MyAPIGateway.Gui.GetCurrentScreen == MyTerminalPageEnum.None && !MyAPIGateway.Session.IsCameraUserControlledSpectator)
+                if (Options.Current != null && !MyAPIGateway.Gui.IsCursorVisible && MyAPIGateway.Gui.GetCurrentScreen == MyTerminalPageEnum.None && (MyAPIGateway.Session.HasCreativeRights || !MyAPIGateway.Session.IsCameraUserControlledSpectator))
                 {
                     var view = MyAPIGateway.Session.Camera.WorldMatrix;
-                    var target = view.Translation + view.Forward * 10;
+                    var target = view.Translation + view.Forward * (10 * (MyAPIGateway.Session.IsCameraUserControlledSpectator ? 3 : 1));
 
                     IHitInfo hit;
                     if (MyAPIGateway.Physics.CastRay(view.Translation, target, out hit, 30) && hit?.HitEntity is IMyCubeGrid)

@@ -114,10 +114,9 @@ namespace Sprays.Math0424
 
             if (decalCache.Count == 0 || decalCache[0] == 0)
             {
-                SprayUtil.Notify($"Failed to place spray {HashValue}", 2000, "Red");
+                //SprayUtil.Notify($"Failed to place spray {HashValue}", 2000, "Red");
                 if (IsAnimated)
                     Animated.Remove(this);
-
                 return;
             }
 
