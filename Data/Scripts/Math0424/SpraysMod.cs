@@ -109,18 +109,17 @@ namespace Sprays.Math0424
             if (Options.Frame % 3 == 0) fps |= SprayDef.FPS.Fps_20;
             if (Options.Frame % 2 == 0) fps |= SprayDef.FPS.Fps_30;
 
-            foreach (ActiveSpray s in new List<ActiveSpray>(ActiveSpray.Animated.Keys))
+            foreach (ActiveSpray s in ActiveSpray.Animated.Keys)
             {
                 //a bit of bitshifting for the FPS
                 if ((s.Flags << 8 >> 27 & (int)fps) != 0)
                 {
                     if (ActiveSpray.Animated[s] != null && !(ActiveSpray.Animated[s].Closed || ActiveSpray.Animated[s].MarkedForClose))
                     {
-                        s.IncrementFrame(ActiveSpray.Animated[s]);
+                        s.IncrementFrame(ActiveSpray.Animated[s], true);
                     }
                 }
             }
-
         }
 
         //Does this need to be in Draw?
@@ -128,7 +127,6 @@ namespace Sprays.Math0424
         {
             if (!MyAPIGateway.Utilities.IsDedicated && MyAPIGateway.Session?.Player != null)
             {
-
                 if (SprayHud.Window == null)
                 {
                     SprayHud.Init();
@@ -180,7 +178,7 @@ namespace Sprays.Math0424
                                 MyAPIGateway.Utilities.ShowNotification("You do not own this grid!", 10000, MyFontEnum.Red);
                                 return;
                             }
-                            
+
                             PlaySpraySound();
 
                             //Will send spray packet to everyone - even self

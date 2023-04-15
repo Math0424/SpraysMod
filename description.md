@@ -1,9 +1,5 @@
 [h1] Sprays mod [/h1]
 
-
-[h1]TMP NOTICE: NEW UPDATE- NEW FORMAT- redownload SEImageConverter and re-upload your mods using the new format[/h1]
-
-
 Sprays mod allows you to bring dynamically placeable 'sprays' into your game. 
 Sprays work with copy / paste, Blueprints, projections and more!
 
@@ -44,7 +40,5 @@ Click on the search option in the toolbar to open the search GUI
 
 
 [b][h1][url=https://discord.gg/qpS5MarhYu]Discord[/url][/h1][/b]
-
-Like what I do? Make a [url=https://www.buymeacoffee.com/Math0424] donation [/url] or give the mod a award!
 [quote=author] No one is allowed reupload this mod. 
 And it wont work on Xbone. [/quote]

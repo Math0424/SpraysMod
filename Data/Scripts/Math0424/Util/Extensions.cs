@@ -58,7 +58,7 @@ namespace Sprays.Math0424
                 List<ActiveSpray> remove = new List<ActiveSpray>();
                 foreach (ActiveSpray spray in storage.GetSprays())
                 {
-                    if (Vector3.DistanceSquared(spray.Pos, pos) <= (1 + Math.Pow(2.5, spray.Size - 1)) / 10.0)
+                    if (Vector3.DistanceSquared(spray.Pos, pos) <= (1 + Math.Pow(spray.Size - 1, 2)) / 10.0)
                     {
                         remove.Add(spray);
                     }

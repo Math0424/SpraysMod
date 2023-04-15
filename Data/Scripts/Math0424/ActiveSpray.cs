@@ -1,6 +1,7 @@
 ﻿using ProtoBuf;
 using Sandbox.Game;
 using Sandbox.Game.Entities;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using VRage.Game.ModAPI;
 using VRage.ModAPI;
@@ -14,7 +15,9 @@ namespace Sprays.Math0424
     [ProtoContract]
     public class ActiveSpray
     {
-        public static Dictionary<ActiveSpray, IMyEntity> Animated = new Dictionary<ActiveSpray, IMyEntity>();
+
+        private static MyStringHash defaultMat = MyStringHash.GetOrCompute("Default");
+        public static ConcurrentDictionary<ActiveSpray, IMyEntity> Animated = new ConcurrentDictionary<ActiveSpray, IMyEntity>();
 
         [ProtoMember(1)] public Vector3 Pos;
         [ProtoMember(2)] public Vector3 Norm;
@@ -26,8 +29,8 @@ namespace Sprays.Math0424
         [ProtoIgnore] public uint Id { protected set; get; }
         [ProtoIgnore] public int CurrentFrame { protected set; get; }
 
-        public bool IsAnimated => ((SprayDef.SprayFlags)Flags).HasFlag(SprayDef.SprayFlags.Animated);
-        public bool IsEraser => SprayId.Equals(SprayDef.EraserGuid.ToString());
+        [ProtoIgnore] public bool IsAnimated => ((SprayDef.SprayFlags)Flags).HasFlag(SprayDef.SprayFlags.Animated);
+        [ProtoIgnore] public bool IsEraser => SprayId.Equals(SprayDef.EraserGuid.ToString());
 
         public ActiveSpray() { } //empty constructor for serialization
 
@@ -41,21 +44,20 @@ namespace Sprays.Math0424
             this.Flags = spray.Flags;
         }
 
-        public void IncrementFrame(IMyEntity ent)
+        public void IncrementFrame(IMyEntity ent, bool update)
         {
             CurrentFrame++;
             if (CurrentFrame >= (Flags >> 24))
-            {
                 CurrentFrame = 0;
-            }
-            Spray(ent);
+
+            if (update)
+                SprayOrUpdate(ent);
         }
 
         public void Clear()
         {
             if (IsAnimated)
                 Animated.Remove(this);
-
             MyDecals.RemoveDecal(Id, true);
         }
 
@@ -71,90 +73,66 @@ namespace Sprays.Math0424
                 {
                     if (Animated.ContainsKey(this))
                         return;
-                    Animated.Add(this, ent);
+                    Animated.TryAdd(this, ent);
                 }
 
-                Spray(ent);
+                SprayOrUpdate(ent);
             }
         }
 
         private static List<uint> decalCache = new List<uint>(1);
-        private void Spray(IMyEntity ent)
+        private void SprayOrUpdate(IMyEntity ent)
         {
             MyDecals.RemoveDecal(Id, true);
 
-            var decalHit = new MyHitInfo()
-            {
-                Position = Vector3.Transform(Pos, ent.WorldMatrix),
-                Normal = Vector3.TransformNormal(Norm, ent.WorldMatrix),
-            };
-
             MyStringHash sprayHash;
-            string HashValue = $"{SprayId}";
-
+            string HashValue = SprayId;
             if (IsAnimated)
-                HashValue += $"_{CurrentFrame}";
+                HashValue = $"{SprayId}_{CurrentFrame}";
 
             if (!MyStringHash.TryGet(HashValue, out sprayHash))
             {
-                SprayUtil.Log($"Corrupt or missing spray {HashValue}");
-                if(IsAnimated)
-                    Animated.Remove(this);
-                return;
-            }
-
-            decalCache.Clear();
-            MyDecals.HandleAddDecal(ent,
-                            decalHit,
-                            Up,
-                            MyStringHash.GetOrCompute("Default"),
-                            sprayHash,
-                            flags: MyDecalFlags.IgnoreRenderLimits | MyDecalFlags.IgnoreOffScreenDeletion,
-                            decals: decalCache);
-
-            if (decalCache.Count == 0 || decalCache[0] == 0)
-            {
-                //SprayUtil.Notify($"Failed to place spray {HashValue}", 2000, "Red");
                 if (IsAnimated)
                     Animated.Remove(this);
                 return;
             }
 
+            MyDecalRenderInfo myDecalRenderInfo = new MyDecalRenderInfo
+            {
+                PhysicalMaterial = defaultMat,
+                VoxelMaterial = defaultMat,
+                Flags = MyDecalFlags.IgnoreRenderLimits | MyDecalFlags.IgnoreOffScreenDeletion,
+                AliveUntil = int.MaxValue,
+                IsTrail = false,
+                
+                Source = sprayHash,
+                Forward = Up,
+                Normal = Norm,
+                Position = Pos,
+                RenderObjectIds = ent.Render.RenderObjectIDs,
+            };
+
+            decalCache.Clear();
+            MyDecals.AddDecal(ref myDecalRenderInfo, decalCache);
+
+            if (decalCache.Count == 0 || decalCache[0] == 0)
+            {
+                if (IsAnimated)
+                    Animated.Remove(this);
+                return;
+            }
             Id = decalCache[0];
+
             MyDecalPositionUpdate update = new MyDecalPositionUpdate
             {
                 ID = Id,
                 Transform = Matrix.CreateFromDir(Norm, Up),
             };
 
-            float depth = .25f;
-            if (ent is IMyCubeGrid && ((IMyCubeGrid)ent).GridSizeEnum == VRage.Game.MyCubeSize.Large)
-            {
-                depth = 1f;
-            }
-            update.Transform.Translation = Pos - (Norm * (depth / 2.5f));
-            
-            
-            //start fatblock logic
-            if (ent is IMyCubeGrid) 
-            {
-                IMySlimBlock mySlimBlock = ((MyCubeGrid)ent).GetTargetedBlock(decalHit.Position - 0.001f * decalHit.Normal);
-                if (mySlimBlock?.FatBlock != null)
-                {
-                    Vector3D pos = Vector3D.Transform(decalHit.Position, mySlimBlock.FatBlock.PositionComp.WorldMatrixInvScaled);
-                    Vector3D normal = Vector3D.TransformNormal(decalHit.Normal, mySlimBlock.FatBlock.PositionComp.WorldMatrixInvScaled);
-
-                    update.Transform = Matrix.CreateFromDir(normal, Up);
-                    update.Transform.Translation = pos - (normal * (depth / 2.5f));
-                }
-            }
-            //end fatblock logic
-
-
-            update.Transform.Forward *= depth;
+            update.Transform.Translation = Pos - (Norm * 0.1f);
+            update.Transform.Forward *= .25f;
             update.Transform.Right *= Size;
             update.Transform.Up *= Size;
-            
             MyDecals.UpdateDecals(new List<MyDecalPositionUpdate> { update });
         }
 
