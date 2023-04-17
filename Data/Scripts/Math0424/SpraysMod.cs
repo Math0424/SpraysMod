@@ -22,14 +22,16 @@ namespace Sprays.Math0424
     internal class SpraysMod : MySessionComponentBase
     {
         private const string configPath = "Sprays.txt";
-
         public static readonly Dictionary<string, List<SprayDef>> RegistedSprays = new Dictionary<string, List<SprayDef>>();
 
+        long time;
         public override void LoadData()
         {
+            time = DateTime.Now.Ticks;
             GetSprays();
-            MyNetworkHandler.Init();
+            SprayUtil.Log($"Init took {(DateTime.Now.Ticks - time) / 10000}ms");
 
+            MyNetworkHandler.Init();
             if (!MyAPIGateway.Utilities.IsDedicated)
             {
                 MyEntities.OnEntityAdd += OnEntityAddEvent;

@@ -129,7 +129,7 @@ namespace Sprays.Math0424
                 Transform = Matrix.CreateFromDir(Norm, Up),
             };
 
-            update.Transform.Translation = Pos - (Norm * 0.1f);
+            update.Transform.Translation = Pos - (Norm * 0.1f); // .25 * 2.5
             update.Transform.Forward *= .25f;
             update.Transform.Right *= Size;
             update.Transform.Up *= Size;
