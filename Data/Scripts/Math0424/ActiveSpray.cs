@@ -104,7 +104,7 @@ namespace Sprays.Math0424
                 Flags = MyDecalFlags.IgnoreRenderLimits | MyDecalFlags.IgnoreOffScreenDeletion,
                 AliveUntil = int.MaxValue,
                 IsTrail = false,
-                
+
                 Source = sprayHash,
                 Forward = Up,
                 Normal = Norm,

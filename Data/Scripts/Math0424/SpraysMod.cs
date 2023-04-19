@@ -137,7 +137,7 @@ namespace Sprays.Math0424
                 if (Options.Current != null && !MyAPIGateway.Gui.IsCursorVisible && MyAPIGateway.Gui.GetCurrentScreen == MyTerminalPageEnum.None && (MyAPIGateway.Session.HasCreativeRights || !MyAPIGateway.Session.IsCameraUserControlledSpectator))
                 {
                     var view = MyAPIGateway.Session.Camera.WorldMatrix;
-                    var target = view.Translation + view.Forward * (10 * (MyAPIGateway.Session.IsCameraUserControlledSpectator ? 3 : 1));
+                    var target = view.Translation + view.Forward * (10 * (MyAPIGateway.Session.IsCameraUserControlledSpectator ? 100 : 1));
 
                     IHitInfo hit;
                     if (MyAPIGateway.Physics.CastRay(view.Translation, target, out hit, 30) && hit?.HitEntity is IMyCubeGrid)
@@ -175,7 +175,7 @@ namespace Sprays.Math0424
                         if (MyAPIGateway.Input.IsNewRightMousePressed())
                         {
                             IMyEntity ent = hit.HitEntity;
-                            if (ent is MyCubeGrid && !((MyCubeGrid)ent).CanSprayGrid(MyAPIGateway.Session.Player.IdentityId))
+                            if (ent is MyCubeGrid && !((MyCubeGrid)ent).CanSprayGrid(MyAPIGateway.Session.Player.IdentityId, MyAPIGateway.Session.Player.SteamUserId))
                             {
                                 MyAPIGateway.Utilities.ShowNotification("You do not own this grid!", 10000, MyFontEnum.Red);
                                 return;

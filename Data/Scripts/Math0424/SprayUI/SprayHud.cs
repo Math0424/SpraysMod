@@ -90,15 +90,17 @@ namespace Sprays.Math0424
         {
             if (CanUseInput() && Options.Current != null)
             {
-                if (Options.NoLimits)
+                if (Options.NoLimits && Options.Size >= 9.9)
                 {
-                    if (Options.Size > 15)
-                        Options.Size *= 1.05f;
-                    else
-                        Options.Size = Options.Size + .5f;
+                    Options.Size *= 1.05f;
                 }
                 else
-                    Options.Size = Math.Min(Options.Size + .5f, 10);
+                {
+                    if (Options.Size < 2)
+                        Options.Size = Math.Min(Options.Size * 1.2f, 10);
+                    else
+                        Options.Size = Math.Min(Options.Size + .5f, 10);
+                }
             }
         }
 
@@ -106,7 +108,10 @@ namespace Sprays.Math0424
         {
             if (CanUseInput() && Options.Current != null)
             {
-                Options.Size = Math.Max(Options.Size - .5f, .1f);
+                if (Options.Size < 2)
+                    Options.Size = Math.Max(Options.Size * .8f, .2f);
+                else
+                    Options.Size = Math.Max(Options.Size - .5f, .2f);
             }
         }
 

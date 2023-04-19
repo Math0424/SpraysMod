@@ -71,8 +71,13 @@ namespace Sprays.Math0424
             }
         }
 
-        public static bool CanSprayGrid(this IMyCubeGrid grid, long myId)
+        public static bool CanSprayGrid(this IMyCubeGrid grid, long myId, ulong steamID)
         {
+            MyAdminSettingsEnum flags;
+            MyAPIGateway.Session.TryGetAdminSettings(steamID, out flags);
+            if ((flags & MyAdminSettingsEnum.UseTerminals) != 0)
+                return true;
+            
             if (grid == null || (grid.BigOwners.Count == 0 && grid.SmallOwners.Count == 0))
             {
                 return true;
