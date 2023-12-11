@@ -51,6 +51,17 @@ namespace Sprays.Math0424
             sprayBinds[5].NewPressed += (a, b) => DecreaseSpraySize();
 
             sprayBinds[6].NewPressed += (a, b) => FlipSpray();
+
+            string combo = "";
+            var list = sprayBinds[0].GetCombo();
+            for (int i = 0; i < list.Count; i++)
+            {
+                combo += list[i].DisplayName;
+                if (i != list.Count - 1)
+                    combo += " + ";
+            }
+
+            MyAPIGateway.Utilities.ShowMessage("SpraysMod", $"'{combo}' to show hud");
         }
 
         private void ToggleSprayWindow()
@@ -93,6 +104,8 @@ namespace Sprays.Math0424
                 if (Options.NoLimits && Options.Size >= 9.9)
                 {
                     Options.Size *= 1.05f;
+                    if (!MyAPIGateway.Session.HasCreativeRights)
+                        Options.Size = Math.Max(Options.Size, 60);
                 }
                 else
                 {
@@ -101,6 +114,8 @@ namespace Sprays.Math0424
                     else
                         Options.Size = Math.Min(Options.Size + .5f, 10);
                 }
+
+                Options.Size = (float)Math.Round(Options.Size, 2);
             }
         }
 
@@ -112,6 +127,8 @@ namespace Sprays.Math0424
                     Options.Size = Math.Max(Options.Size * .8f, .2f);
                 else
                     Options.Size = Math.Max(Options.Size - .5f, .2f);
+
+                Options.Size = (float)Math.Round(Options.Size, 2);
             }
         }
 

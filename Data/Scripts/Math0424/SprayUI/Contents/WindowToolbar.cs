@@ -107,20 +107,17 @@ namespace Sprays.Math0424.SprayUI.Contents
             };
             continous.MouseInput.LeftReleased += ClickedContinuous;
            
-            if (MyAPIGateway.Session.HasCreativeRights)
+            noLimits = new LabelBoxButton(menu)
             {
-                noLimits = new LabelBoxButton(menu)
-                {
-                    ParentAlignment = ParentAlignments.Top | ParentAlignments.Inner | ParentAlignments.Center,
-                    Offset = new Vector2(0, -480),
-                    Color = new Color(41, 54, 100),
-                    Format = new GlyphFormat(GlyphFormat.Blueish.Color, TextAlignment.Center, 1f),
-                    AutoResize = false,
-                    Text = "NoLimits: False",
-                    Size = new Vector2(180, 50),
-                };
-                noLimits.MouseInput.LeftReleased += ClickedNoLimits;
-            }
+                ParentAlignment = ParentAlignments.Top | ParentAlignments.Inner | ParentAlignments.Center,
+                Offset = new Vector2(0, -480),
+                Color = new Color(41, 54, 100),
+                Format = new GlyphFormat(GlyphFormat.Blueish.Color, TextAlignment.Center, 1f),
+                AutoResize = false,
+                Text = "NoLimits: False",
+                Size = new Vector2(180, 50),
+            };
+            noLimits.MouseInput.LeftReleased += ClickedNoLimits;
 
             refresh = new LabelBoxButton(menu)
             {
@@ -161,7 +158,6 @@ namespace Sprays.Math0424.SprayUI.Contents
                 y += i.Count;
             }
             x.Text = y + " sprays";
-
 
             new LabelBox(menu)
             {
@@ -239,7 +235,7 @@ namespace Sprays.Math0424.SprayUI.Contents
             if (Visible)
             {
 
-                if (sizeSlider.Visible)
+                if (sizeSlider.IsMousedOver && sizeSlider.Visible)
                 {
                     Options.Size = (float)Math.Round(sizeSlider.Current, 1);
                     sizeLabel.Text = "Size: " + (int)Options.Size;

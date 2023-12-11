@@ -50,9 +50,6 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Data\Scripts\Math0424\RichHud\Shared\.gitrepo" />
-    <None Include="Data\Scripts\Math0424\RichHud\Shared\LICENSE" />
-    <None Include="Data\Scripts\Math0424\RichHud\Shared\README.md" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="netstandard, Version=2.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51" />
@@ -143,10 +140,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\Scripts\Math0424\ActiveSpray.cs" />
-    <Compile Include="Data\Scripts\Math0424\SprayDef.cs" />
-    <Compile Include="Data\Scripts\Math0424\Network\EasyNetworker.cs" />
-    <Compile Include="Data\Scripts\Math0424\Network\MyNetworkHandler.cs" />
-    <Compile Include="Data\Scripts\Math0424\Network\PacketNewSpray.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Client\RichHudClient.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\BindManager\Bind.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Client\UI\BindManager\BindGroup.cs" />
@@ -233,6 +226,7 @@
     <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\NamedCheckBox.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\NamedOnOffButton.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\Buttons\OnOffButton.cs" />
+    <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\ColorPickerHSV.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\ColorPickerRGB.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\ListInputElement.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\HUD\HudElements\ClickableHudElements\MouseInputElement.cs" />
@@ -303,6 +297,10 @@
     <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SettingsMenu\ITextPage.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\SharedBinds.cs" />
     <Compile Include="Data\Scripts\Math0424\RichHud\Shared\UI\TextInput.cs" />
+    <Compile Include="Data\Scripts\Math0424\SprayDef.cs" />
+    <Compile Include="Data\Scripts\Math0424\Network\EasyNetworker.cs" />
+    <Compile Include="Data\Scripts\Math0424\Network\MyNetworkHandler.cs" />
+    <Compile Include="Data\Scripts\Math0424\Network\PacketNewSpray.cs" />
     <Compile Include="Data\Scripts\Math0424\SpraysMod.cs" />
     <Compile Include="Data\Scripts\Math0424\SprayUI\Contents\SprayFolder.cs" />
     <Compile Include="Data\Scripts\Math0424\SprayUI\Contents\SprayIcon.cs" />

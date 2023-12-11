@@ -78,11 +78,7 @@ namespace Sprays.Math0424
             if ((flags & MyAdminSettingsEnum.UseTerminals) != 0)
                 return true;
             
-            if (grid == null || (grid.BigOwners.Count == 0 && grid.SmallOwners.Count == 0))
-            {
-                return true;
-            }
-            else if (grid.BigOwners.Contains(myId))
+            if (grid == null || (grid.BigOwners.Count == 0 && grid.SmallOwners.Count == 0) || grid.BigOwners.Contains(myId))
             {
                 return true;
             }
